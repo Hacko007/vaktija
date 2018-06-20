@@ -20,25 +20,32 @@
     </LinearGradientBrush>
   </Window.Background>
   <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="5*"/>
-      <RowDefinition Height="20*"/>
-      <RowDefinition Height="10*" x:Name="Row1"/>
-      <RowDefinition Height="10*" x:Name="Row2"/>
-      <RowDefinition Height="10*" x:Name="Row3"/>
-      <RowDefinition Height="10*" x:Name="Row4"/>
-      <RowDefinition Height="10*" x:Name="Row5"/>
-      <RowDefinition Height="10*" x:Name="Row6"/>
-    </Grid.RowDefinitions>
+      <Grid.RowDefinitions>
+          <RowDefinition Height="25*"/>
+          <RowDefinition Height="25*"/>
+          <RowDefinition Height="170*"/>
+          <RowDefinition Height="100*"/>
+          <RowDefinition Height="100*"/>
+          <RowDefinition Height="100*"/>
+          <RowDefinition Height="100*"/>
+          <RowDefinition Height="100*"/>
+          <RowDefinition Height="100*"/>
+      </Grid.RowDefinitions>
 
-    <local:Red x:Name="Datum" Grid.Row="0"  />
-    <local:Sat x:Name="GlavniSat" Grid.Row="1" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
-    <local:Red x:Name="Zora" Grid.Row="2"  />
-    <local:Red x:Name="Izlazak" Grid.Row="3"  />
-    <local:Red x:Name="Podne" Grid.Row="4"  />
-    <local:Red x:Name="Ikindija" Grid.Row="5"  />
-    <local:Red x:Name="Aksam" Grid.Row="6" />
-    <local:Red x:Name="Jacija" Grid.Row="7"  />
+      <local:Red x:Name="DatumHidzretski" Grid.Row="0"/>
+      <local:Red x:Name="Datum" Grid.Row="1"/>
 
-  </Grid>
+      <local:Sat x:Name="GlavniSat" Grid.Row="2" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+          <local:Sat.RenderTransform>
+              <ScaleTransform ScaleX="1.4" ScaleY="1.4"/>
+          </local:Sat.RenderTransform>
+      </local:Sat>
+      <local:Red x:Name="Zora" Grid.Row="3"  />
+      <local:Red x:Name="Izlazak" Grid.Row="4"  />
+      <local:Red x:Name="Podne" Grid.Row="5" />
+      <local:Red x:Name="Ikindija" Grid.Row="6"  />
+      <local:Red x:Name="Aksam" Grid.Row="7" />
+      <local:Red x:Name="Jacija" Grid.Row="8"  />
+
+    </Grid>
 </Window>

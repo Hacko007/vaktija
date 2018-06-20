@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
+using Vaktija.Data;
 
 namespace Vaktija
 {
@@ -17,7 +18,8 @@ namespace Vaktija
         {
             InitializeComponent();
             CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("bs-Latn-BA");
-            Takvim = Vaktija.Takvim.KreirajVaktiju();
+            Takvim = Vaktija.Data.Takvim.KreirajVaktiju();
+            Praznici = Vaktija.Data.Takvim.GetSviPraznici();
             PostaviVrijeme();
             var timer = new Timer(1000);
             timer.Elapsed += Timer_Elapsed;
@@ -25,6 +27,7 @@ namespace Vaktija
         }
 
         private List<Dan> Takvim { get; }
+        public List<Praznik> Praznici { get; }
         public Dan Danas { get; set; }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -38,12 +41,23 @@ namespace Vaktija
                 where dan.Datum == DateTime.Today
                 select dan).FirstOrDefault();
 
-            
+            var drzavniPraznik = (from praznik in Praznici
+                where praznik.JeliOvoDanas(Kalendar.Georgianski)
+                select praznik.Opis).FirstOrDefault();
+
+            var vjerskiPraznik = (from praznik in Praznici
+                where praznik.JeliOvoDanas(Kalendar.Hidzretski)
+                select praznik.Opis).FirstOrDefault();
+
             Application.Current.Dispatcher.Invoke(
                 () =>
                 {
-                    GlavniSat.Time = DateTime.Now;                    
+                    GlavniSat.Time = DateTime.Now;
+
                     Datum.RedText.Text = DateTime.Today.ToLongDateString();
+                    Datum.SetDatum(drzavniPraznik);
+                    DatumHidzretski.SetHidzretskiDatum(vjerskiPraznik);
+
                     Datum.StyleDatum();
 
                     if (Danas == null) return;

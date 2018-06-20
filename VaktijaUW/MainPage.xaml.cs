@@ -8,6 +8,7 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Vaktija.Data;
 
 namespace VaktijaUW
 {
@@ -27,8 +28,8 @@ namespace VaktijaUW
             //InitRTC();
 
             CultureInfo.CurrentUICulture = new CultureInfo("bs-Latn-BA");
-            Takvim = VaktijaUW.Takvim.KreirajVaktiju();
-            Praznici = VaktijaUW.Takvim.GetSviPraznici();
+            Takvim = Vaktija.Data.Takvim.KreirajVaktiju();
+            Praznici = Vaktija.Data.Takvim.GetSviPraznici();
             Task.Run(PokreniVaktijuAsync);
         }
 

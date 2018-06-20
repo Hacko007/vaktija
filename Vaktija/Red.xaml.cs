@@ -13,20 +13,40 @@ namespace Vaktija
         public Red()
         {
             InitializeComponent();
+            PraznikText.Text = "";
         }
 
-        public void SetRed(string vakat, TimeSpan sat)        
-        {            
-            RedText.Text = string.Format(CultureInfo.InvariantCulture, " {0,-10}  {1} ", vakat,
+        public void SetRed(string vakat, TimeSpan sat)
+        {
+            RedText.Text = string.Format(CultureInfo.InvariantCulture, " {0,-8}  {1} ", vakat,
                 sat.ToString(@"hh\:mm"));
         }
+
+        public void SetDatum(string drzavniPraznik)
+        {
+            RedText.Text = DateTime.Today.ToString("D", new CultureInfo("bs-Latn-BA"));
+            PrikaziPraznik(drzavniPraznik);
+            if (Resources["Datum"] is Style style)
+                RedText.Style = style;
+        }
+
+        public void SetHidzretskiDatum(string vjerskiPraznik)
+        {
+            PrikaziPraznik(vjerskiPraznik);
+
+            RedText.Text = DateTime.Today.ToString("D", new CultureInfo("ar-SA"));
+
+            if (Resources["Datum"] is Style style)
+                RedText.Style = style;
+        }
+
 
         public void StyleStandard()
         {
             if (Application.Current.FindResource("SatStandard") is Style style)
                 RedText.Style = style;
 
-            if (Application.Current.FindResource("RedStandard") is Style redStyle)
+            if (Resources["RedStandard"] is Style redStyle)
                 Style = redStyle;
         }
 
@@ -35,7 +55,7 @@ namespace Vaktija
             if (Application.Current.FindResource("SatProsloVrijeme") is Style style)
                 RedText.Style = style;
 
-            if (Application.Current.FindResource("RedStandard") is Style redStyle)
+            if (Resources["RedStandard"] is Style redStyle)
                 Style = redStyle;
         }
 
@@ -44,19 +64,27 @@ namespace Vaktija
             if (Application.Current.FindResource("SatVakatJe") is Style style)
                 RedText.Style = style;
 
-            if (Application.Current.FindResource("RedVakatJe") is Style redStyle)
+            if (Resources["RedVakatJe"] is Style redStyle)
                 Style = redStyle;
         }
 
         public void StyleDatum()
         {
-            if (Application.Current.FindResource("Datum") is Style style)
+            if (Resources["Datum"] is Style style)
                 RedText.Style = style;
 
-            if (Application.Current.FindResource("RedStandard") is Style redStyle)
+            if (Resources["RedStandard"] is Style redStyle)
                 Style = redStyle;
         }
 
-       
+
+     
+        private void PrikaziPraznik(string praznik)
+        {
+            if (!string.IsNullOrEmpty(praznik))
+                PraznikText.Text = "  -  " + praznik;
+            else
+                PraznikText.Text = "";
+        }
     }
 }

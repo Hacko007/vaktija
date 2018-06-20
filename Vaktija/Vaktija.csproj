@@ -54,14 +54,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Dan.cs" />
     <Compile Include="Red.xaml.cs">
       <DependentUpon>Red.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sat.xaml.cs">
       <DependentUpon>Sat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Takvim.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -108,6 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vaktija.Data\Vaktija.Data.csproj">
+      <Project>{2ba96c4c-3227-4220-9a8f-fd0c72f00645}</Project>
+      <Name>Vaktija.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
