@@ -17,7 +17,7 @@ namespace Vaktija
                 Aksam = new TimeSpan(aksamh, aksamm, 0);
                 Jacija = new TimeSpan(jacijah, jacijam, 0);
             }
-            catch (ArgumentOutOfRangeException e)
+            catch (ArgumentOutOfRangeException)
             {                
             }            
         }

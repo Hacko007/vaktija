@@ -26,11 +26,5 @@ namespace Vaktija
                 label.Text = _time == null ? "" : _time.ToShortTimeString();
             }
         }
-
-        public void StyleGlavniSat()
-        {
-            if (Application.Current.FindResource("SatGlavni") is Style style)
-                label.Style = style;
-        }
     }
 }

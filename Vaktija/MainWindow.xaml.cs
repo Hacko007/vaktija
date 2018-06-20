@@ -38,24 +38,11 @@ namespace Vaktija
                 where dan.Datum == DateTime.Today
                 select dan).FirstOrDefault();
 
-            //Danas = new JedanDan
-            //{
-            //    ZoraSat = 16,
-            //    ZoraMinuta = 1,
-            //    SabahSat = 16,
-            //    SabahMinuta = 3,
-            //    PodneSat = 19,
-            //    PodneMinuta = 47,
-            //    IkindijaSat = 19,
-            //    IkindijaMinuta = 48,
-            //    AksamSat = 20,AksamMinuta = 49,
-            //    JacijaSat = 21, JacijaMinuta = 48
-            //};
+            
             Application.Current.Dispatcher.Invoke(
                 () =>
                 {
-                    GlavniSat.Time = DateTime.Now;
-                    GlavniSat.StyleGlavniSat();
+                    GlavniSat.Time = DateTime.Now;                    
                     Datum.RedText.Text = DateTime.Today.ToLongDateString();
                     Datum.StyleDatum();
 
