@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
@@ -15,53 +13,18 @@ namespace Vaktija.UW
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //RTC_DS3231 _clock;
-
         public MainPage()
         {
             InitializeComponent();
-            // Ako imate RTC instaliran na Raspberry Pi
-            //RealTimeClock.SetTime();
-
-            //InitRTC();
 
             CultureInfo.CurrentUICulture = new CultureInfo("bs-Latn-BA");
-            Takvim = Vaktija.Data.Takvim.KreirajVaktiju();
-            Praznici = Vaktija.Data.Takvim.GetSviPraznici();
+            Takvim = new Takvim();
+
             Task.Run(PokreniVaktijuAsync);
         }
 
-        //private void InitRTC()
-        //{
-        //    _clock = new RTC_DS3231();
-        //    Task.Run(()=> _clock.FindI2CAddressesAsync(Msg));
-        //    DispatcherTimer timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(1) };
-        //    timer.Tick += (oo, ee) =>
-        //    {
-        //        var t = _clock.ReadTime();
-        //        Time2.Text = t.HasValue ?t.ToString(): "No time";
-        //        Temperature.Text = _clock.ReadTemperature().ToString();
-        //    };
-        //    timer.Start();
-        //}
-
-        //private async Task Msg(Message arg)
-        //{
-        //    await Task.Run(()=> Debug.WriteLine(arg));
-        //}
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    _clock.WriteTime(DateTime.Now.ToUniversalTime());
-        //    DateTime dt = _clock.ReadTime().Value;
-        //}
-
-
-        //public static DateTime Time { get; set; } = DateTime.Now;
-
-        private List<Dan> Takvim { get; }
-        public List<Praznik> Praznici { get; }
-        public Dan Danas { get; set; }
+        private Takvim Takvim { get; }
+        private Dan Danas { get; set; }
 
         private async Task PokreniVaktijuAsync()
         {
@@ -75,29 +38,15 @@ namespace Vaktija.UW
 
         private async Task PostaviVrijeme()
         {
-            //var rtcTime = await RealTimeClock.GetTimeFromDs3231();
-            //Time = rtcTime ?? DateTime.Now;
-            //Time = DateTime.Now;
-
-            Danas = (from dan in Takvim
-                where dan.Datum == DateTime.Today
-                select dan).FirstOrDefault();
-
-            var drzavniPraznik = (from praznik in Praznici
-                where praznik.JeliOvoDanas(Kalendar.Georgianski)
-                select praznik.Opis).FirstOrDefault();
-
-            var vjerskiPraznik = (from praznik in Praznici
-                where praznik.JeliOvoDanas(Kalendar.Hidzretski)
-                select praznik.Opis).FirstOrDefault();
+            Danas = Takvim.Danas;
 
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 () =>
                 {
                     GlavniSat.Time = DateTime.Now;
-                    Datum.SetDatum(drzavniPraznik);
-                    DatumHidzretski.SetHidzretskiDatum(vjerskiPraznik);
+                    Datum.SetDatum(Takvim.DrzavniPraznik);
+                    DatumHidzretski.SetHidzretskiDatum(Takvim.VjerskiPraznik);
 
                     if (Danas == null) return;
 

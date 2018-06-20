@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using Vaktija.Data;
 
-namespace Vaktija
+namespace Vaktija.Wpf
 {
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
@@ -18,17 +16,15 @@ namespace Vaktija
         {
             InitializeComponent();
             CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("bs-Latn-BA");
-            Takvim = Vaktija.Data.Takvim.KreirajVaktiju();
-            Praznici = Vaktija.Data.Takvim.GetSviPraznici();
+            Takvim = new Takvim();
             PostaviVrijeme();
             var timer = new Timer(1000);
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }
 
-        private List<Dan> Takvim { get; }
-        public List<Praznik> Praznici { get; }
-        public Dan Danas { get; set; }
+        private Takvim Takvim { get; }
+        private Dan Danas { get; set; }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -37,17 +33,7 @@ namespace Vaktija
 
         private void PostaviVrijeme()
         {
-            Danas = (from dan in Takvim
-                where dan.Datum == DateTime.Today
-                select dan).FirstOrDefault();
-
-            var drzavniPraznik = (from praznik in Praznici
-                where praznik.JeliOvoDanas(Kalendar.Georgianski)
-                select praznik.Opis).FirstOrDefault();
-
-            var vjerskiPraznik = (from praznik in Praznici
-                where praznik.JeliOvoDanas(Kalendar.Hidzretski)
-                select praznik.Opis).FirstOrDefault();
+            Danas = Takvim.Danas;
 
             Application.Current.Dispatcher.Invoke(
                 () =>
@@ -55,8 +41,8 @@ namespace Vaktija
                     GlavniSat.Time = DateTime.Now;
 
                     Datum.RedText.Text = DateTime.Today.ToLongDateString();
-                    Datum.SetDatum(drzavniPraznik);
-                    DatumHidzretski.SetHidzretskiDatum(vjerskiPraznik);
+                    Datum.SetDatum(Takvim.DrzavniPraznik);
+                    DatumHidzretski.SetHidzretskiDatum(Takvim.VjerskiPraznik);
 
                     Datum.StyleDatum();
 

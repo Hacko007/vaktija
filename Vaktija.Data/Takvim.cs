@@ -1,9 +1,35 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Vaktija.Data
 {
-    public static class Takvim
+    public class Takvim
     {
+        public Takvim()
+        {
+            Vremena = KreirajVaktiju();
+            Praznici = GetSviPraznici();
+        }
+
+        public Dan Danas => (from dan in Vremena
+            where dan.Datum == DateTime.Today
+            select dan).FirstOrDefault();
+
+
+        public string DrzavniPraznik => (from praznik in Praznici
+            where praznik.JeliOvoDanas(Kalendar.Georgianski)
+            select praznik.Opis).FirstOrDefault();
+
+        public string VjerskiPraznik => (from praznik in Praznici
+            where praznik.JeliOvoDanas(Kalendar.Hidzretski)
+            select praznik.Opis).FirstOrDefault();
+
+
+        private List<Praznik> Praznici { get; set; }
+
+        private List<Dan> Vremena { get; set; }
+
         public static List<Praznik> GetSviPraznici()
         {
             return new List<Praznik>

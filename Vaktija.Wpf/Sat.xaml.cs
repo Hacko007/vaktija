@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Controls;
 
-namespace Vaktija
+namespace Vaktija.Wpf
 {
     /// <summary>
     ///     Interaction logic for Sat.xaml

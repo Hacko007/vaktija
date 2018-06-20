@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Vaktija
+namespace Vaktija.Wpf
 {
     /// <summary>
     ///     Interaction logic for Red.xaml

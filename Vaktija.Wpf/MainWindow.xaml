@@ -1,9 +1,9 @@
-﻿<Window x:Class="Vaktija.MainWindow"
+﻿<Window x:Class="Vaktija.Wpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Vaktija"
+        xmlns:local="clr-namespace:Vaktija.Wpf"
         mc:Ignorable="d"
         Title="Vaktija" Height="700" Width="500" WindowState="Maximized" WindowStyle="None">
   <Window.Resources>
