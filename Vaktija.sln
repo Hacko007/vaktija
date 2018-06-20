@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vaktija", "Vaktija\Vaktija.csproj", "{75D47349-7B05-4D08-8D8B-411ED3B7D059}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vaktija.Wpf", "Vaktija.Wpf\Vaktija.Wpf.csproj", "{75D47349-7B05-4D08-8D8B-411ED3B7D059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaktijaUW", "VaktijaUW\VaktijaUW.csproj", "{1146B299-50C7-47E5-A01B-813E19984162}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vaktija.UW", "Vaktija.UW\Vaktija.UW.csproj", "{1146B299-50C7-47E5-A01B-813E19984162}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vaktija.Data", "Vaktija.Data\Vaktija.Data.csproj", "{2BA96C4C-3227-4220-9A8F-FD0C72F00645}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vaktija.Data", "Vaktija.Data\Vaktija.Data.csproj", "{2BA96C4C-3227-4220-9A8F-FD0C72F00645}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

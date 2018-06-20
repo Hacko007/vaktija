@@ -1,0 +1,55 @@
+﻿<Application
+    x:Class="Vaktija.UW.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Vaktija.UW"
+    >
+    <Application.Resources>
+
+        <Style x:Key="Uvelicaj" TargetType="local:Red">
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.7"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform  ScaleX="1" ScaleY="1.3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SatGlavni" TargetType="local:Sat">
+            <Setter Property="FontFamily" Value="Assets/Fonts/AbrilFatface-Regular.ttf#Abril Fatface"/>
+            <Setter Property="Foreground" Value="#FFA1B239"/>
+            
+        </Style>
+
+        <Style x:Key="SatProsloVrijeme" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Assets/Fonts/AbrilFatface-Regular.ttf#Abril Fatface"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+                        <GradientStop Color="#FF2C9528" Offset="1"/>
+                        <GradientStop Color="#FF39B834"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            
+        </Style>
+
+        <Style x:Key="SatStandard" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Assets/Fonts/AbrilFatface-Regular.ttf#Abril Fatface"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF2C9528" Offset="1"/>
+                        <GradientStop Color="#FF39B834"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SatVakatJe" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Assets/Fonts/AbrilFatface-Regular.ttf#Abril Fatface"/>
+            <Setter Property="Foreground" Value="#FFF3EA25"/>
+        </Style>
+
+    </Application.Resources>
+</Application>
