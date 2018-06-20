@@ -7,5 +7,5 @@ Ovo je vaktija uradjena za Dzemat IZ BiH u Göteborgu. Vremena su upisana u klas
 
 **Projekt Vaktija.UW** je dio koji je uradjena za Universal Windows tako da se moze voziti na **Raspberry Pi** sa operativnim sistemom **Windows IoT**.
 
-**Projekt Vaktija.Wpf** je dio koji je uradjena za WPF aplikacija tako da se moze voziti na svakom Windows 10 PCju.
+**Projekt Vaktija.Wpf** je dio koji je uradjena kao WPF aplikacija tako da se moze voziti na svakom Windows 10 PCju.
 
