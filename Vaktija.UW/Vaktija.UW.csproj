@@ -18,7 +18,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>Vaktija.UW_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>57EB92F87B1F7B418CE9274DA1A17C4558E6DA95</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>F1837194C467B764EBFD979440EA80501BD2404C</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
