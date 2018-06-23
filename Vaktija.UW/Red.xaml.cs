@@ -9,13 +9,15 @@ namespace Vaktija.UW
 {
     public sealed partial class Red : UserControl
     {
-        CultureInfo bihCultureInfo = new CultureInfo("bs-Latn-BA");
-        CultureInfo arabCultureInfo = new CultureInfo("ar-SA");
+        private CultureInfo ArabCultureInfo { get; set; } 
+        private CultureInfo BihCultureInfo { get; set; } 
 
         public Red()
         {
             InitializeComponent();
             PraznikText.Text = "";
+            ArabCultureInfo = new CultureInfo("ar-SA");
+            BihCultureInfo = new CultureInfo("bs-Latn-BA");
         }
 
 
@@ -27,8 +29,15 @@ namespace Vaktija.UW
 
         public void SetDatum(string drzavniPraznik)
         {
-            var danas = DateTime.Today.ToString("D", bihCultureInfo);
-            RedText.Text = bihCultureInfo.TextInfo.ToTitleCase(danas);
+            var danas = DateTime.Today.ToString("D", BihCultureInfo);
+            try
+            {
+                RedText.Text = BihCultureInfo.TextInfo.ToTitleCase(danas);
+            }
+            catch {
+                RedText.Text = danas;
+            }
+
             PrikaziPraznik(drzavniPraznik);
             if (Resources["Datum"] is Style style)
                 RedText.Style = style;
@@ -40,7 +49,7 @@ namespace Vaktija.UW
         {            
             PrikaziPraznik(vjerskiPraznik);
             
-            RedText.Text = DateTime.Today.ToString("D", new CultureInfo("ar-SA")); 
+            RedText.Text = DateTime.Today.ToString("D", ArabCultureInfo); 
             
             if (Resources["Datum"] is Style style)
                 RedText.Style = style;
