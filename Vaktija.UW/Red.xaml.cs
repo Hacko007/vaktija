@@ -9,7 +9,9 @@ namespace Vaktija.UW
 {
     public sealed partial class Red : UserControl
     {
-        
+        CultureInfo bihCultureInfo = new CultureInfo("bs-Latn-BA");
+        CultureInfo arabCultureInfo = new CultureInfo("ar-SA");
+
         public Red()
         {
             InitializeComponent();
@@ -19,13 +21,14 @@ namespace Vaktija.UW
 
         public void SetRed(string vakat, TimeSpan sat)
         {
-            RedText.Text = string.Format("{0,-8} {1} ", vakat,
+            RedText.Text = string.Format(" {0} {1} ", vakat,
                 sat.ToString(@"hh\:mm"));
         }
 
         public void SetDatum(string drzavniPraznik)
         {
-            RedText.Text = DateTime.Today.ToString("D", new CultureInfo("bs-Latn-BA"));
+            var danas = DateTime.Today.ToString("D", bihCultureInfo);
+            RedText.Text = bihCultureInfo.TextInfo.ToTitleCase(danas);
             PrikaziPraznik(drzavniPraznik);
             if (Resources["Datum"] is Style style)
                 RedText.Style = style;

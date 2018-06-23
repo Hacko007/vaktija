@@ -51,7 +51,7 @@ namespace Vaktija.UW
                     if (Danas == null) return;
 
                     SetZora();
-                    SetStyle(Podne, "Podne ", Danas.Podne, Danas.Ikindija);
+                    SetStyle(Podne, "Podne    ", Danas.Podne, Danas.Ikindija);
                     SetStyle(Ikindija, "Ikindija", Danas.Ikindija, Danas.Aksam);
                     SetStyle(Aksam, "Akšam ", Danas.Aksam, Danas.Jacija);
                     SetJacija();
@@ -92,7 +92,7 @@ namespace Vaktija.UW
                 Izlazak.StyleProsloVrijeme();
             }
 
-            Zora.SetRed("Zora  ", Danas.Zora);
+            Zora.SetRed("Zora    ", Danas.Zora);
             Izlazak.SetRed("Sabah ", Danas.Sabah);
         }
 
@@ -103,7 +103,7 @@ namespace Vaktija.UW
                 Jacija.StyleStandard();
             else if (Danas.Jacija <= sad || sad < Danas.Zora) Jacija.StyleVakatJe();
 
-            Jacija.SetRed("Jacija", Danas.Jacija);
+            Jacija.SetRed("Jacija   ", Danas.Jacija);
         }
     }
 }
