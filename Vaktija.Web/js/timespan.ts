@@ -10,7 +10,7 @@ const MILLISECONDS_IN_A_DAY = MILLISECONDS_IN_AN_HOUR * HOURS_IN_A_DAY;
 const MILLISECONDS_IN_A_WEEK = MILLISECONDS_IN_A_DAY * DAYS_IN_A_WEEK;
 
 
-export class TimeSpan {
+ class TimeSpan {
 
 	static Subtract(date1: any, date2: any) {
 		let milliSeconds: number = date1 - date2;

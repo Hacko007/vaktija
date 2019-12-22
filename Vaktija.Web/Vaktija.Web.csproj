@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="dan.ts" />
-    <None Remove="Praznik.ts" />
-    <None Remove="takvim.ts" />
-    <None Remove="timespan.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,10 +12,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="dan.ts" />
   </ItemGroup>
 
 </Project>
