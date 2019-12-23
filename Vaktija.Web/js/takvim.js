@@ -13,6 +13,7 @@ var Takvim = /** @class */ (function () {
                 return d;
             }
         }
+        console.log("nema danas");
         return null;
     };
     Takvim.prototype.kreirajVaktiju = function () {

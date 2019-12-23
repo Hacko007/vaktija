@@ -20,8 +20,10 @@
                 return d;
             }
         }
+        console.log("nema danas");
         return null;
-    }
+     }
+
     kreirajVaktiju(): Dan[] {
         return null;
     }

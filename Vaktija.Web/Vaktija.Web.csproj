@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="js\main.ts" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,8 @@
 var Dan = /** @class */ (function () {
     function Dan(mjesec, dan, zorah, zoram, sabahh, sabahm, podneh, podnem, ikindijah, ikindijam, aksamh, aksamm, jacijah, jacijam) {
+        this.standrad = "standard";
+        this.vakatJe = "vakatJe";
+        this.prosloVrijeme = "prosloVrijeme";
         try {
             var now = new Date();
             this.datum = new Date(now.getFullYear(), mjesec, dan);
@@ -21,10 +24,62 @@ var Dan = /** @class */ (function () {
             this.jacija = new TimeSpan();
             this.jacija.hours = jacijah;
             this.jacija.minutes = jacijam;
+            this.zoraStyle = this.standrad;
+            this.sabahStyle = this.standrad;
+            this.podneStyle = this.standrad;
+            this.ikindijaStyle = this.standrad;
+            this.aksamStyle = this.standrad;
+            this.jacijaStyle = this.standrad;
         }
         catch (err) {
         }
     }
+    Dan.prototype.setStyle = function () {
+        this.setStyleZora();
+        this.podneStyle = this.getStyle(this.podne, this.ikindija);
+        this.ikindijaStyle = this.getStyle(this.ikindija, this.aksam);
+        this.aksamStyle = this.getStyle(this.aksam, this.jacija);
+        this.setStyleJacija();
+    };
+    Dan.prototype.sad = function () {
+        var now = new Date();
+        var sad = new TimeSpan();
+        sad.hours = now.getHours();
+        sad.minutes = now.getMinutes();
+        return sad;
+    };
+    Dan.prototype.getStyle = function (pocetak, kraj) {
+        var sad = this.sad();
+        if (pocetak > sad)
+            return this.standrad;
+        else if (pocetak <= sad && sad <= kraj)
+            return this.vakatJe;
+        else
+            return this.prosloVrijeme;
+    };
+    Dan.prototype.setStyleZora = function () {
+        var sad = this.sad();
+        if (this.zora > sad) {
+            this.zoraStyle = this.standrad;
+        }
+        else if (this.zora <= sad && sad <= this.sabah) {
+            this.zoraStyle = this.standrad;
+            this.sabahStyle = this.vakatJe;
+        }
+        else {
+            this.zoraStyle = this.prosloVrijeme;
+            this.sabahStyle = this.prosloVrijeme;
+        }
+    };
+    Dan.prototype.setStyleJacija = function () {
+        var sad = this.sad();
+        //if (this.danas.jacija > sad)
+        //    return "standard";
+        if (this.jacija <= sad || sad < this.zora)
+            this.jacijaStyle = this.vakatJe;
+        else
+            this.jacijaStyle = this.standrad;
+    };
     return Dan;
 }());
 //# sourceMappingURL=dan.js.map
