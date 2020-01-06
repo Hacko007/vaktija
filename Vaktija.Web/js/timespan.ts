@@ -154,14 +154,18 @@ const MILLISECONDS_IN_A_WEEK = MILLISECONDS_IN_A_DAY * DAYS_IN_A_WEEK;
 
 		let newDays = this.roundValue(this._hours, HOURS_IN_A_DAY);
 		this._hours = newDays.modulu;
-		this._days += newDays.addition;
+		//this._days += newDays.addition;
 
-		this._totalMilliSeconds = this.days * MILLISECONDS_IN_A_DAY + this.hours * MILLISECONDS_IN_AN_HOUR + this.minutes * MILLISECONDS_IN_A_MINUTE
-			+ this.seconds * MILLISECONDS_IN_A_SECOND + this.milliseconds;
+		this._totalMilliSeconds = this.days * MILLISECONDS_IN_A_DAY
+			+ this.hours * MILLISECONDS_IN_AN_HOUR
+			+ this.minutes * MILLISECONDS_IN_A_MINUTE
+			+ this.seconds * MILLISECONDS_IN_A_SECOND
+			+ this.milliseconds;
 	}
 
 	 sat(): string {
-		 return this._hours + ":" + this.minutes;
+		 return this._hours + ":" + ('00' + this.minutes).slice(-2)  ;
 	 }
 
+	 
 }

@@ -152,12 +152,15 @@ var TimeSpan = /** @class */ (function () {
         this._hours += newminutes.addition;
         var newDays = this.roundValue(this._hours, HOURS_IN_A_DAY);
         this._hours = newDays.modulu;
-        this._days += newDays.addition;
-        this._totalMilliSeconds = this.days * MILLISECONDS_IN_A_DAY + this.hours * MILLISECONDS_IN_AN_HOUR + this.minutes * MILLISECONDS_IN_A_MINUTE
-            + this.seconds * MILLISECONDS_IN_A_SECOND + this.milliseconds;
+        //this._days += newDays.addition;
+        this._totalMilliSeconds = this.days * MILLISECONDS_IN_A_DAY
+            + this.hours * MILLISECONDS_IN_AN_HOUR
+            + this.minutes * MILLISECONDS_IN_A_MINUTE
+            + this.seconds * MILLISECONDS_IN_A_SECOND
+            + this.milliseconds;
     };
     TimeSpan.prototype.sat = function () {
-        return this._hours + ":" + this.minutes;
+        return this._hours + ":" + ('00' + this.minutes).slice(-2);
     };
     return TimeSpan;
 }());

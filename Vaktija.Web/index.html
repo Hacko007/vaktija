@@ -2,8 +2,40 @@
 <html>
 <head>
     <style>
-        .standard{
-            color:red;
+        .glavniSat {
+            color: black;
+            font-size: xx-large;
+            text-align:center;
+        }
+
+        .standard {
+            color: black;
+            font-size: xx-large;
+            text-align: end;
+            padding-right: 40px;
+        }
+        .vakatJe {
+            color: green;
+            font-size: xx-large;
+            text-align: end;
+            background: linear-gradient(rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),green) ;
+            padding-right: 40px;
+        }
+        .prosloVrijeme {
+            color: gray;
+            font-size: xx-large;
+            text-align: end;
+            padding-right: 40px;
+        }
+
+
+        .nazivVakta{
+            font-size:xx-large;
+            padding-left:40px;
+        }
+
+        td {
+            background: linear-gradient(rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00), gray );
         }
     </style>
     <script src="js/dan.js"></script>
@@ -13,10 +45,15 @@
     <script src="js/main.js"></script>
     <script >
         function init() {
+
             var main = new Main();
+            let now = new Date();
+            let sad = new TimeSpan();
+            sad.hours = now.getHours();
+            sad.minutes = now.getMinutes();
+
             var sat = document.getElementById("sat");
-            sat.textContent = main.danas.zora.sat();
-            sat.className = main.danas.zoraStyle;
+            sat.textContent = sad.sat();            
 
             var zora = document.getElementById("zora");
             zora.textContent = main.danas.zora.sat();
@@ -25,6 +62,24 @@
             var sabah = document.getElementById("sabah");
             sabah.textContent = main.danas.sabah.sat();
             sabah.className = main.danas.sabahStyle;
+
+            var podne = document.getElementById("podne");
+            podne.textContent = main.danas.podne.sat();
+            podne.className = main.danas.podneStyle;
+
+            var ikindija = document.getElementById("ikindija");
+            ikindija.textContent = main.danas.ikindija.sat();
+            ikindija.className = main.danas.ikindijaStyle;
+
+            var aksam = document.getElementById("aksam");
+            aksam.textContent = main.danas.aksam.sat();
+            aksam.className = main.danas.aksamStyle;
+
+            var jacija = document.getElementById("jacija");
+            jacija.textContent = main.danas.jacija.sat();
+            jacija.className = main.danas.jacijaStyle;
+
+            
         }
     </script>
     <meta charset="utf-8" />
@@ -32,11 +87,27 @@
 </head>
 <body onload="init();">
 
-    <div id="sat" />
-    <div id="zora" />
-    <div id="sabah" />
-    <div id="podne" />
-    <div id="ikindija" />
-    <div id="aksam" />
+    <table width="100%" border="0">
+    <thead><tr><td colspan="2">
+                   <div id="sat" class="glavniSat"></div>    
+        </td></tr>
+        </thead>
+    <tbody>
+        <tr><td class="nazivVakta">Zora</td>    <td><div id="zora"></div></td></tr>
+        <tr><td class="nazivVakta">Sabah</td>   <td><div id="sabah"></div></td></tr>
+        <tr><td class="nazivVakta">Podne</td>   <td><div id="podne"></div></td></tr>
+        <tr><td class="nazivVakta">Ikindija</td><td><div id="ikindija"></div></td></tr>
+        <tr><td class="nazivVakta">Aksam</td>   <td><div id="aksam"></div></td></tr>
+        <tr><td class="nazivVakta">Jacija</td>  <td><div id="jacija"></div></td></tr>        
+    </tbody>
+    </table>
+
+    
+    
+    
+    
+    
+    
+    
 </body>
 </html>

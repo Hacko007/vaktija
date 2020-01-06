@@ -46,10 +46,9 @@
             this.sabah.hours = sabahh;
             this.sabah.minutes = sabahm;
 
-
-            this.podne = new TimeSpan();
-            this.podne.hours = podneh;
+            this.podne = new TimeSpan();            
             this.podne.minutes = podnem;
+            this.podne.hours = podneh;
 
             this.ikindija = new TimeSpan();
             this.ikindija.hours = ikindijah;
@@ -70,6 +69,7 @@
             this.aksamStyle = this.standrad;
             this.jacijaStyle = this.standrad;
         } catch (err) {
+            console.log(err);
         }
     }
 
@@ -95,9 +95,9 @@
 
         let sad: TimeSpan = this.sad();
 
-        if (pocetak > sad)
+        if (pocetak.totalMilliSeconds > sad.totalMilliSeconds )
             return this.standrad;
-        else if (pocetak <= sad && sad <= kraj)
+        else if (pocetak.totalMilliSeconds <= sad.totalMilliSeconds && sad.totalMilliSeconds <= kraj.totalMilliSeconds )
             return this.vakatJe;
         else
             return this.prosloVrijeme;
@@ -105,11 +105,11 @@
 
     setStyleZora() {
         let sad: TimeSpan = this.sad();
-
-        if (this.zora > sad) {
+       
+        if (this.zora.totalMilliSeconds > sad.totalMilliSeconds ) {
             this.zoraStyle = this.standrad;
         }
-        else if (this.zora <= sad && sad <= this.sabah) {
+        else if (this.zora.totalMilliSeconds <= sad.totalMilliSeconds && sad.totalMilliSeconds <= this.sabah.totalMilliSeconds ) {
             this.zoraStyle = this.standrad;
             this.sabahStyle = this.vakatJe;
         }
@@ -119,13 +119,10 @@
         }
     }
 
-
     setStyleJacija() {
         let sad: TimeSpan = this.sad();
-
-        //if (this.danas.jacija > sad)
-        //    return "standard";
-        if (this.jacija <= sad || sad < this.zora)
+       
+        if (this.jacija.totalMilliSeconds <= sad.totalMilliSeconds || sad.totalMilliSeconds < this.zora.totalMilliSeconds )
             this.jacijaStyle = this.vakatJe;
         else
             this.jacijaStyle = this.standrad;
