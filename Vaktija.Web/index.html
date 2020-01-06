@@ -1,6 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <style>
+        .standard{
+            color:red;
+        }
+    </style>
     <script src="js/dan.js"></script>
     <script src="js/Praznik.js"></script>
     <script src="js/timespan.js"></script>
@@ -10,7 +15,16 @@
         function init() {
             var main = new Main();
             var sat = document.getElementById("sat");
-            sat.textContent = main.danas.zora;
+            sat.textContent = main.danas.zora.sat();
+            sat.className = main.danas.zoraStyle;
+
+            var zora = document.getElementById("zora");
+            zora.textContent = main.danas.zora.sat();
+            zora.className = main.danas.zoraStyle;
+
+            var sabah = document.getElementById("sabah");
+            sabah.textContent = main.danas.sabah.sat();
+            sabah.className = main.danas.sabahStyle;
         }
     </script>
     <meta charset="utf-8" />
@@ -18,7 +32,11 @@
 </head>
 <body onload="init();">
 
-    <div id="sat"/>
-
+    <div id="sat" />
+    <div id="zora" />
+    <div id="sabah" />
+    <div id="podne" />
+    <div id="ikindija" />
+    <div id="aksam" />
 </body>
 </html>

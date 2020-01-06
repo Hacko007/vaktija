@@ -156,6 +156,9 @@ var TimeSpan = /** @class */ (function () {
         this._totalMilliSeconds = this.days * MILLISECONDS_IN_A_DAY + this.hours * MILLISECONDS_IN_AN_HOUR + this.minutes * MILLISECONDS_IN_A_MINUTE
             + this.seconds * MILLISECONDS_IN_A_SECOND + this.milliseconds;
     };
+    TimeSpan.prototype.sat = function () {
+        return this._hours + ":" + this.minutes;
+    };
     return TimeSpan;
 }());
 //# sourceMappingURL=timespan.js.map
