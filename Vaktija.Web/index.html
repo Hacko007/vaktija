@@ -2,40 +2,71 @@
 <html>
 <head>
     <style>
-        .glavniSat {
-            color: black;
-            font-size: xx-large;
-            text-align:center;
+
+        @font-face {
+            font-family: "textFont";
+            src: url('assets/AbrilFatface-Regular.ttf');
         }
+
+        @font-face {
+            font-family: 'nrFont';
+            src: url("assets/ArchivoBlack.otf");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        body {
+            transform: translate(0%, 100%) rotate(-90deg) translate(139%, -2%) scale(1);
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+        }
+
 
         .standard {
             color: black;
-            font-size: xx-large;
-            text-align: end;
-            padding-right: 40px;
         }
         .vakatJe {
             color: green;
-            font-size: xx-large;
-            text-align: end;
-            background: linear-gradient(rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),green) ;
-            padding-right: 40px;
+            background: linear-gradient(cadetblue, rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),cadetblue);
         }
         .prosloVrijeme {
             color: gray;
-            font-size: xx-large;
-            text-align: end;
-            padding-right: 40px;
         }
 
-
-        .nazivVakta{
-            font-size:xx-large;
-            padding-left:40px;
-        }
-
+        
         td {
-            background: linear-gradient(rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00), gray );
+            background: linear-gradient(rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00), lightgray );
+        }
+       
+        .numbers {
+            font-family: 'nrFont', Arial, sans-serif;
+        }
+
+        .vakat {
+            text-align: start;
+            padding: 50px;
+            font-size: 7em;
+            font-family: 'textFont', Arial, sans-serif;
+        }
+
+        .sat {
+            text-align: end;
+            padding: 50px;
+            font-size: 7em;
+        }
+
+        .velikisat {
+            text-align: center;
+            font-size: 9em;
+        }
+
+        .datum {
+            display: block;
+            font-size: 6em;
+            color: darkgrey;
+            text-align: center;
         }
     </style>
     <script src="js/dan.js"></script>
@@ -53,61 +84,68 @@
             sad.minutes = now.getMinutes();
 
             var sat = document.getElementById("sat");
-            sat.textContent = sad.sat();            
+            sat.textContent = sad.sat();         
 
-            var zora = document.getElementById("zora");
-            zora.textContent = main.danas.zora.sat();
-            zora.className = main.danas.zoraStyle;
+            setStyle("zora", main.danas.zora.sat(),main.danas.zoraStyle);
+            setStyle("sabah", main.danas.sabah.sat(), main.danas.sabahStyle);
+            setStyle("podne", main.danas.podne.sat(),main.danas.podneStyle);
+            setStyle("ikindija",main.danas.ikindija.sat(),main.danas.ikindijaStyle);
+            setStyle("aksam", main.danas.aksam.sat(),main.danas.aksamStyle);
+            setStyle("jacija", main.danas.jacija.sat(),main.danas.jacijaStyle);
+        }
 
-            var sabah = document.getElementById("sabah");
-            sabah.textContent = main.danas.sabah.sat();
-            sabah.className = main.danas.sabahStyle;
-
-            var podne = document.getElementById("podne");
-            podne.textContent = main.danas.podne.sat();
-            podne.className = main.danas.podneStyle;
-
-            var ikindija = document.getElementById("ikindija");
-            ikindija.textContent = main.danas.ikindija.sat();
-            ikindija.className = main.danas.ikindijaStyle;
-
-            var aksam = document.getElementById("aksam");
-            aksam.textContent = main.danas.aksam.sat();
-            aksam.className = main.danas.aksamStyle;
-
-            var jacija = document.getElementById("jacija");
-            jacija.textContent = main.danas.jacija.sat();
-            jacija.className = main.danas.jacijaStyle;
-
-            
+        function setStyle(id, sat, className) {
+            try {
+                var satDiv = document.getElementById(id);
+                satDiv.textContent = sat;
+                var red = document.getElementById(id + "-red");
+                red.className = className;    
+            } catch (e) {
+            }
         }
     </script>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Vaktija</title>
 </head>
 <body onload="init();">
 
-    <table width="100%" border="0">
-    <thead><tr><td colspan="2">
-                   <div id="sat" class="glavniSat"></div>    
-        </td></tr>
-        </thead>
-    <tbody>
-        <tr><td class="nazivVakta">Zora</td>    <td><div id="zora"></div></td></tr>
-        <tr><td class="nazivVakta">Sabah</td>   <td><div id="sabah"></div></td></tr>
-        <tr><td class="nazivVakta">Podne</td>   <td><div id="podne"></div></td></tr>
-        <tr><td class="nazivVakta">Ikindija</td><td><div id="ikindija"></div></td></tr>
-        <tr><td class="nazivVakta">Aksam</td>   <td><div id="aksam"></div></td></tr>
-        <tr><td class="nazivVakta">Jacija</td>  <td><div id="jacija"></div></td></tr>        
-    </tbody>
-    </table>
 
-    
-    
-    
-    
-    
-    
-    
+<table style="padding: 0; border-spacing: 0px; top: 0px; left: 0px; margin: 0px; box-sizing: content-box; width: 57%; background-color: #f0f0f0;">
+    <tr>
+        <td colspan="2">
+            <div id="sat" class="numbers velikisat">	17:56</div>
+            <div class="datum">2020-01-07</div>
+        </td>
+    </tr>
+    <tr id="zora-red">
+        <td class="vakat">Zora</td>
+        <td class="numbers sat"><div id="zora"></div></td>
+    </tr>
+    <tr id="sabah-red">
+        <td class="vakat">Sabah</td>
+        <td class="numbers sat"><div id="sabah"></div></td>
+    </tr>
+    <tr id="podne-red">
+        <td class="vakat">Podne</td>
+        <td class="numbers sat"><div id="podne"></div></td>
+    </tr>
+    <tr id="ikindija-red">
+        <td class="vakat">Ikindija</td>
+        <td class="numbers sat"><div id="ikindija"></div></td>
+    </tr>
+    <tr  id="aksam-red">
+        <td class="vakat">Akšam</td>
+        <td class="numbers sat"><div id="aksam"></div></td>
+    </tr>
+    <tr id="jacija-red">
+        <td class="vakat">Jacija</td>
+        <td class="numbers sat"><div id="jacija"></div></td>
+    </tr>
+</table>
+
+
+
+
+
 </body>
 </html>
