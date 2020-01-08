@@ -2,72 +2,7 @@
 <html>
 <head>
     <style>
-
-        @font-face {
-            font-family: "textFont";
-            src: url('assets/AbrilFatface-Regular.ttf');
-        }
-
-        @font-face {
-            font-family: 'nrFont';
-            src: url("assets/ArchivoBlack.otf");
-            font-weight: normal;
-            font-style: normal;
-        }
-
-
-        body {
-            transform: translate(0%, 100%) rotate(-90deg) translate(139%, -2%) scale(1);
-            padding: 0px;
-            margin: 0px;
-            overflow: hidden;
-        }
-
-
-        .standard {
-            color: black;
-        }
-        .vakatJe {
-            color: green;
-            background: linear-gradient(cadetblue, rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),cadetblue);
-        }
-        .prosloVrijeme {
-            color: gray;
-        }
-
-        
-        td {
-            background: linear-gradient(rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00), lightgray );
-        }
-       
-        .numbers {
-            font-family: 'nrFont', Arial, sans-serif;
-        }
-
-        .vakat {
-            text-align: start;
-            padding: 50px;
-            font-size: 7em;
-            font-family: 'textFont', Arial, sans-serif;
-        }
-
-        .sat {
-            text-align: end;
-            padding: 50px;
-            font-size: 7em;
-        }
-
-        .velikisat {
-            text-align: center;
-            font-size: 9em;
-        }
-
-        .datum {
-            display: block;
-            font-size: 6em;
-            color: darkgrey;
-            text-align: center;
-        }
+        @import url(assets/tamnaTema.css);
     </style>
     <script src="js/dan.js"></script>
     <script src="js/Praznik.js"></script>
@@ -110,38 +45,53 @@
 <body onload="init();">
 
 
-<table style="padding: 0; border-spacing: 0px; top: 0px; left: 0px; margin: 0px; box-sizing: content-box; width: 57%; background-color: #f0f0f0;">
-    <tr>
-        <td colspan="2">
-            <div id="sat" class="numbers velikisat">	17:56</div>
-            <div class="datum">2020-01-07</div>
-        </td>
-    </tr>
-    <tr id="zora-red">
-        <td class="vakat">Zora</td>
-        <td class="numbers sat"><div id="zora"></div></td>
-    </tr>
-    <tr id="sabah-red">
-        <td class="vakat">Sabah</td>
-        <td class="numbers sat"><div id="sabah"></div></td>
-    </tr>
-    <tr id="podne-red">
-        <td class="vakat">Podne</td>
-        <td class="numbers sat"><div id="podne"></div></td>
-    </tr>
-    <tr id="ikindija-red">
-        <td class="vakat">Ikindija</td>
-        <td class="numbers sat"><div id="ikindija"></div></td>
-    </tr>
-    <tr  id="aksam-red">
-        <td class="vakat">Akšam</td>
-        <td class="numbers sat"><div id="aksam"></div></td>
-    </tr>
-    <tr id="jacija-red">
-        <td class="vakat">Jacija</td>
-        <td class="numbers sat"><div id="jacija"></div></td>
-    </tr>
-</table>
+    <table style="padding: 0; border-spacing: 0px; top: 0px; left: 0px; margin: 0px; box-sizing: content-box; width: 57%;">
+        <tr>
+            <td colspan="2">
+                <div id="sat" class="numbers velikisat"> 17:56</div>
+                <div class="datum">2020-01-07</div>
+            </td>
+        </tr>
+        <tr id="zora-red">
+            <td>
+                <div class="vakat">Zora</div>
+            </td>
+            <td><div id="zora" class="numbers sat"></div></td>
+        </tr>
+        <tr id="sabah-red">
+            <td>
+                <div class="vakat">Sabah</div>
+            </td>
+            <td><div id="sabah" class="numbers sat"></div></td>
+        </tr>
+        <tr id="podne-red">
+            <td>
+                <div class="vakat">Podne</div>
+            </td>
+            <td><div id="podne" class="numbers sat"></div></td>
+        </tr>
+        <tr id="ikindija-red">
+            <td>
+                <div class="vakat">Ikindija</div>
+            </td>
+            <td><div id="ikindija" class="numbers sat"></div></td>
+        </tr>
+        <tr id="aksam-red">
+            <td>
+                <div class="vakat">Akšam</div>
+            </td>
+           
+            <td>
+                <div id="aksam" class="numbers sat"></div>
+            </td>
+        </tr>
+        <tr id="jacija-red">
+            <td>
+                <div class="vakat">Jacija</div>
+            </td>
+            <td><div id="jacija" class="numbers sat"></div></td>
+        </tr>
+    </table>
 
 
 

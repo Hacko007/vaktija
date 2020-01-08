@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "textFont";
+    src: url('AbrilFatface-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'nrFont';
+    src: url("ArchivoBlack.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    transform: translate(0%, 100%) rotate(-90deg) translate(144%, 0%) scale(1);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.standard {
+    color: whitesmoke;
+}
+
+.vakatJe {
+    background: linear-gradient(cadetblue, rgba(0, 0, 0, 0.50),rgba(0, 0, 0, 0.20),rgba(0, 0, 0, 0.50),cadetblue);
+    
+}
+
+tr.vakatJe div {
+    color: aqua;
+    filter: drop-shadow(3px 2px 6px cornsilk)
+}
+
+.prosloVrijeme {
+    color: lightgray;
+}
+
+td {
+    background: linear-gradient(rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.00),rgba(0, 0, 0, 0.00), darkslategray );
+}
+
+.numbers {
+    font-family: 'nrFont', Arial, sans-serif;
+    filter: drop-shadow(5px 5px 5px green)
+}
+
+.vakat {
+    text-align: start;
+    padding: 50px;
+    font-size: 7em;
+    font-family: 'textFont', Arial, sans-serif;
+    filter: drop-shadow(5px 5px 3px  gray)
+}
+
+.sat {
+    text-align: end;
+    padding: 50px;
+    font-size: 7em;
+}
+
+.velikisat {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 11em;
+    color: whitesmoke;
+}
+
+.datum {
+    display: block;
+    font-size: 6em;
+    color: darkgrey;
+    text-align: center;
+}
