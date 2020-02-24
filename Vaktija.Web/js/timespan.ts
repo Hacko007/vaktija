@@ -164,7 +164,7 @@ const MILLISECONDS_IN_A_WEEK = MILLISECONDS_IN_A_DAY * DAYS_IN_A_WEEK;
 	}
 
 	 sat(): string {
-		 return this._hours + ":" + ('00' + this.minutes).slice(-2)  ;
+		 return this._hours + ":" + ('00' + this.minutes).slice(-2) ;
 	 }
 
 	 

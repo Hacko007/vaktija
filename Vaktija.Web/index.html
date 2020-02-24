@@ -13,20 +13,7 @@
         function init() {
 
             var main = new Main();
-            let now = new Date();
-            let sad = new TimeSpan();
-            sad.hours = now.getHours();
-            sad.minutes = now.getMinutes();
-
-            var sat = document.getElementById("sat");
-            sat.textContent = sad.sat();         
-
-            setStyle("zora", main.danas.zora.sat(),main.danas.zoraStyle);
-            setStyle("sabah", main.danas.sabah.sat(), main.danas.sabahStyle);
-            setStyle("podne", main.danas.podne.sat(),main.danas.podneStyle);
-            setStyle("ikindija",main.danas.ikindija.sat(),main.danas.ikindijaStyle);
-            setStyle("aksam", main.danas.aksam.sat(),main.danas.aksamStyle);
-            setStyle("jacija", main.danas.jacija.sat(),main.danas.jacijaStyle);
+            setInterval(updateTime, 1000, main);
         }
 
         function setStyle(id, sat, className) {
@@ -38,6 +25,40 @@
             } catch (e) {
             }
         }
+
+
+        function updateTime(main) {
+            try {
+            
+                let now = new Date();
+                let sad = new TimeSpan();
+                sad.hours = now.getHours();
+                sad.minutes = now.getMinutes();
+                sad.seconds = now.getSeconds();
+
+                var sat = document.getElementById("sat");
+                sat.textContent = sad.sat();    
+
+                
+                setStyle("zora", main.danas.zora.sat(),main.danas.zoraStyle);
+                setStyle("sabah", main.danas.sabah.sat(), main.danas.sabahStyle);
+                setStyle("podne", main.danas.podne.sat(),main.danas.podneStyle);
+                setStyle("ikindija",main.danas.ikindija.sat(),main.danas.ikindijaStyle);
+                setStyle("aksam", main.danas.aksam.sat(),main.danas.aksamStyle);
+                setStyle("jacija", main.danas.jacija.sat(), main.danas.jacijaStyle);
+
+                const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
+                var d = document.getElementById("datum");
+                d.textContent = now.toLocaleDateString("hr", options);
+
+                
+            } catch (e) {
+                console.log(e);            
+            }
+            
+        }
+
+
     </script>
     <meta charset="utf-8" />
     <title>Vaktija</title>
@@ -48,8 +69,8 @@
     <table style="padding: 0; border-spacing: 0px; top: 0px; left: 0px; margin: 0px; box-sizing: content-box; width: 57%;">
         <tr>
             <td colspan="2">
-                <div id="sat" class="numbers velikisat"> 17:56</div>
-                <div class="datum">2020-01-07</div>
+                <div id="sat" class="numbers velikisat">17:56</div>
+                <div id="datum" class="datum">2020-01-07</div>
             </td>
         </tr>
         <tr id="zora-red">
