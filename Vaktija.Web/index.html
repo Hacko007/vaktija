@@ -32,13 +32,14 @@
             
                 let now = new Date();
                 let sad = new TimeSpan();
-                sad.hours = now.getHours();
-                sad.minutes = now.getMinutes();
-                sad.seconds = now.getSeconds();
-
+                
+                sad._seconds = now.getSeconds();
+                sad._minutes = now.getMinutes();
+                sad._hours = now.getHours();
+                sad.calcMilliSeconds();
                 var sat = document.getElementById("sat");
-                sat.textContent = sad.sat();    
-
+                sat.textContent = sad.sat();
+                
                 
                 setStyle("zora", main.danas.zora.sat(),main.danas.zoraStyle);
                 setStyle("sabah", main.danas.sabah.sat(), main.danas.sabahStyle);
@@ -50,7 +51,6 @@
                 const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
                 var d = document.getElementById("datum");
                 d.textContent = now.toLocaleDateString("hr", options);
-
                 
             } catch (e) {
                 console.log(e);            
@@ -69,8 +69,8 @@
     <table style="padding: 0; border-spacing: 0px; top: 0px; left: 0px; margin: 0px; box-sizing: content-box; width: 57%;">
         <tr>
             <td colspan="2">
-                <div id="sat" class="numbers velikisat">17:56</div>
-                <div id="datum" class="datum">2020-01-07</div>
+                <div id="sat" class="numbers velikisat">00:00</div>
+                <div id="datum" class="datum">---, --. --. ----.</div>
             </td>
         </tr>
         <tr id="zora-red">

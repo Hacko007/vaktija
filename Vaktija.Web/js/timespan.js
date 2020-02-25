@@ -152,7 +152,7 @@ var TimeSpan = /** @class */ (function () {
         this._hours += newminutes.addition;
         var newDays = this.roundValue(this._hours, HOURS_IN_A_DAY);
         this._hours = newDays.modulu;
-        //this._days += newDays.addition;
+        this._days += newDays.addition;
         this._totalMilliSeconds = this.days * MILLISECONDS_IN_A_DAY
             + this.hours * MILLISECONDS_IN_AN_HOUR
             + this.minutes * MILLISECONDS_IN_A_MINUTE

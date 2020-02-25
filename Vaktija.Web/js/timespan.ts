@@ -154,7 +154,7 @@ const MILLISECONDS_IN_A_WEEK = MILLISECONDS_IN_A_DAY * DAYS_IN_A_WEEK;
 
 		let newDays = this.roundValue(this._hours, HOURS_IN_A_DAY);
 		this._hours = newDays.modulu;
-		//this._days += newDays.addition;
+		this._days += newDays.addition;
 
 		this._totalMilliSeconds = this.days * MILLISECONDS_IN_A_DAY
 			+ this.hours * MILLISECONDS_IN_AN_HOUR
