@@ -19,7 +19,7 @@ var Main = /** @class */ (function () {
             }
             else {
                 var now = new Date();
-                if (this._danas.datum.getMonth() != now.getMonth() || this._danas.datum.getDate() != now.getDate()) {
+                if (this._danas.datum.getMonth() !== now.getMonth() || this._danas.datum.getDate() !== now.getDate()) {
                     this._danas = this.takvim.danas();
                 }
             }

@@ -51,9 +51,7 @@ var Dan = /** @class */ (function () {
     };
     Dan.prototype.sad = function () {
         var now = new Date();
-        var sad = new TimeSpan();
-        sad.hours = now.getHours();
-        sad.minutes = now.getMinutes();
+        var sad = new TimeSpan().setTime(now.getHours(), now.getMinutes());
         return sad;
     };
     Dan.prototype.getStyle = function (pocetak, kraj) {

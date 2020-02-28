@@ -79,10 +79,8 @@
     }
 
     sad(): TimeSpan {
-        let now: Date = new Date();
-        let sad: TimeSpan = new TimeSpan();
-        sad.hours = now.getHours();
-        sad.minutes = now.getMinutes();
+        const now = new Date();
+        const sad = new TimeSpan().setTime(now.getHours(), now.getMinutes());
         return sad;
     }
 
@@ -90,7 +88,7 @@
 
     getStyle(pocetak: TimeSpan, kraj: TimeSpan): string {
 
-        let sad: TimeSpan = this.sad();
+        const sad = this.sad();
 
         if (pocetak.totalMilliSeconds > sad.totalMilliSeconds )
             return this.standrad;
@@ -101,7 +99,7 @@
     }
 
     setStyleZora() {
-        let sad: TimeSpan = this.sad();
+        const sad = this.sad();
        
         if (this.zora.totalMilliSeconds > sad.totalMilliSeconds ) {
             this.zoraStyle = this.standrad;
@@ -117,7 +115,7 @@
     }
 
     setStyleJacija() {
-        let sad: TimeSpan = this.sad();
+        const sad = this.sad();
        
         if (this.jacija.totalMilliSeconds <= sad.totalMilliSeconds || sad.totalMilliSeconds < this.zora.totalMilliSeconds )
             this.jacijaStyle = this.vakatJe;

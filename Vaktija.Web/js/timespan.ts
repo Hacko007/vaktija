@@ -41,11 +41,13 @@ const MILLISECONDS_IN_A_WEEK = MILLISECONDS_IN_A_DAY * DAYS_IN_A_WEEK;
 		this.milliseconds = milliSeconds;
 	 }
 
-    setTime(hour: number = 0, minutes: number = 0, seconds: number = 0):TimeSpan {
+    setTime(hour: number = 0, minutes: number = 0, seconds: number = 0): TimeSpan {
+        this.milliseconds = 0;
         this._seconds = seconds;
         this._minutes = minutes;
         this._hours = hour;
-		this._days = 0;
+        this._days = 0;
+        this.calcMilliSeconds();
         return this;
     }
 
@@ -141,7 +143,7 @@ const MILLISECONDS_IN_A_WEEK = MILLISECONDS_IN_A_DAY * DAYS_IN_A_WEEK;
 
 
 	roundValue(origValue, maxValue) {
-		return { modulu: origValue % maxValue, addition: Math.round(origValue / maxValue) };
+		return { modulu: origValue % maxValue, addition: Math.floor(origValue / maxValue) };
 	}
 
 

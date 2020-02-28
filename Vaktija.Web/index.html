@@ -4,16 +4,18 @@
     <style>
         @import url(assets/tamnaTema.css);
     </style>
-    <script src="js/HijriCalender.js/dan.js"></script><script src="js/dan.js"></script>
+    <script src="js/dan.js"></script>
     <script src="js/Praznik.js"></script>
     <script src="js/timespan.js"></script>
     <script src="js/takvim.js"></script>
+    <script src="js/HijriDate.js"></script>
     <script src="js/main.js"></script>
     <script >
         function init() {
 
             var main = new Main();
-           
+            //new Dan(1, 28, 5, 27, 7, 8, 12, 26, 15, 0, 17, 43, 19, 17),
+            new TimeSpan().setTime(17, 43);
         }
 
     </script>

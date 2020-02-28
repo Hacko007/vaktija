@@ -37,10 +37,12 @@ var TimeSpan = /** @class */ (function () {
         if (hour === void 0) { hour = 0; }
         if (minutes === void 0) { minutes = 0; }
         if (seconds === void 0) { seconds = 0; }
+        this.milliseconds = 0;
         this._seconds = seconds;
         this._minutes = minutes;
         this._hours = hour;
         this._days = 0;
+        this.calcMilliSeconds();
         return this;
     };
     TimeSpan.prototype.addTo = function (date) {
@@ -148,7 +150,7 @@ var TimeSpan = /** @class */ (function () {
         configurable: true
     });
     TimeSpan.prototype.roundValue = function (origValue, maxValue) {
-        return { modulu: origValue % maxValue, addition: Math.round(origValue / maxValue) };
+        return { modulu: origValue % maxValue, addition: Math.floor(origValue / maxValue) };
     };
     TimeSpan.prototype.calcMilliSeconds = function () {
         var newMilliSecond = this.roundValue(this._milliseconds, MILLISECONDS_IN_A_SECOND);
