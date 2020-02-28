@@ -39,9 +39,17 @@ const MILLISECONDS_IN_A_WEEK = MILLISECONDS_IN_A_DAY * DAYS_IN_A_WEEK;
 		this._days = 0;
 
 		this.milliseconds = milliSeconds;
-	}
+	 }
 
-	addTo(date: Date): Date {
+    setTime(hour: number = 0, minutes: number = 0, seconds: number = 0):TimeSpan {
+        this._seconds = seconds;
+        this._minutes = minutes;
+        this._hours = hour;
+		this._days = 0;
+        return this;
+    }
+
+    addTo(date: Date): Date {
 		console.log('add ' + this.totalMilliSeconds, this);
 		date.setMilliseconds(date.getMilliseconds() + this.totalMilliSeconds);
 
@@ -164,7 +172,7 @@ const MILLISECONDS_IN_A_WEEK = MILLISECONDS_IN_A_DAY * DAYS_IN_A_WEEK;
 	}
 
 	 sat(): string {
-		 return this._hours + ":" + ('00' + this.minutes).slice(-2) ;
+		 return this._hours + ":" + ('00' + this._minutes).slice(-2) ;
 	 }
 
 	 

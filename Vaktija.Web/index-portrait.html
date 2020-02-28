@@ -4,16 +4,21 @@
     <style>
         @import url(assets/tamnaTema.css);
     </style>
+    <style>
+        body {
+            transform: translate(0%, 100%) rotate(-90deg) translate(144%, 0%) scale(1);
+        }
+    </style>
     <script src="js/HijriCalender.js/dan.js"></script><script src="js/dan.js"></script>
     <script src="js/Praznik.js"></script>
     <script src="js/timespan.js"></script>
     <script src="js/takvim.js"></script>
     <script src="js/main.js"></script>
-    <script >
+    <script>
         function init() {
 
             var main = new Main();
-           
+
         }
 
     </script>
@@ -21,7 +26,6 @@
     <title>Vaktija</title>
 </head>
 <body onload="init();">
-
 
     <table style="padding: 0; border-spacing: 0px; top: 0px; left: 0px; margin: 0px; box-sizing: content-box; width: 57%;">
         <tr>
@@ -58,7 +62,7 @@
             <td>
                 <div class="vakat">Akšam</div>
             </td>
-           
+
             <td>
                 <div id="aksam" class="numbers sat"></div>
             </td>

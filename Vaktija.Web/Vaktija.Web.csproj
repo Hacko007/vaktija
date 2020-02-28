@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="js\HijriDate.ts" />
     <None Remove="js\main.ts" />
+    <None Remove="js\mini.ts" />
+    <None Remove="js\mjesec.ts" />
   </ItemGroup>
 
   <ItemGroup>

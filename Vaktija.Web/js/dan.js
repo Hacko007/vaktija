@@ -6,24 +6,12 @@ var Dan = /** @class */ (function () {
         try {
             var now = new Date();
             this.datum = new Date(now.getFullYear(), mjesec, dan);
-            this.zora = new TimeSpan();
-            this.zora.hours = zorah;
-            this.zora.minutes = zoram;
-            this.sabah = new TimeSpan();
-            this.sabah.hours = sabahh;
-            this.sabah.minutes = sabahm;
-            this.podne = new TimeSpan();
-            this.podne.minutes = podnem;
-            this.podne.hours = podneh;
-            this.ikindija = new TimeSpan();
-            this.ikindija.hours = ikindijah;
-            this.ikindija.minutes = ikindijam;
-            this.aksam = new TimeSpan();
-            this.aksam.hours = aksamh;
-            this.aksam.minutes = aksamm;
-            this.jacija = new TimeSpan();
-            this.jacija.hours = jacijah;
-            this.jacija.minutes = jacijam;
+            this.zora = new TimeSpan().setTime(zorah, zoram);
+            this.sabah = new TimeSpan().setTime(sabahh, sabahm);
+            this.podne = new TimeSpan().setTime(podneh, podnem);
+            this.ikindija = new TimeSpan().setTime(ikindijah, ikindijam);
+            this.aksam = new TimeSpan().setTime(aksamh, aksamm);
+            this.jacija = new TimeSpan().setTime(jacijah, jacijam);
             this.zoraStyle = this.standrad;
             this.sabahStyle = this.standrad;
             this.podneStyle = this.standrad;
@@ -35,6 +23,25 @@ var Dan = /** @class */ (function () {
             console.log(err);
         }
     }
+    Object.defineProperty(Dan.prototype, "imeDana", {
+        get: function () {
+            var options = { weekday: "long" };
+            return this.datum.toLocaleDateString("hr", options);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Dan.prototype, "datumHijri", {
+        get: function () {
+            var h = HijriDate.writeIslamicDate(this.datum);
+            if (this.datum.getDate() === 1 || h.dan === 1) {
+                return h.dan + " " + h.mjesec;
+            }
+            return h.dan + "";
+        },
+        enumerable: true,
+        configurable: true
+    });
     Dan.prototype.setStyle = function () {
         this.setStyleZora();
         this.podneStyle = this.getStyle(this.podne, this.ikindija);

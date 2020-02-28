@@ -33,6 +33,16 @@ var TimeSpan = /** @class */ (function () {
         aMonthAgo.setMonth(aMonthAgo.getMonth() - 1);
         return new TimeSpan(now - aMonthAgo);
     };
+    TimeSpan.prototype.setTime = function (hour, minutes, seconds) {
+        if (hour === void 0) { hour = 0; }
+        if (minutes === void 0) { minutes = 0; }
+        if (seconds === void 0) { seconds = 0; }
+        this._seconds = seconds;
+        this._minutes = minutes;
+        this._hours = hour;
+        this._days = 0;
+        return this;
+    };
     TimeSpan.prototype.addTo = function (date) {
         console.log('add ' + this.totalMilliSeconds, this);
         date.setMilliseconds(date.getMilliseconds() + this.totalMilliSeconds);
@@ -160,7 +170,7 @@ var TimeSpan = /** @class */ (function () {
             + this.milliseconds;
     };
     TimeSpan.prototype.sat = function () {
-        return this._hours + ":" + ('00' + this.minutes).slice(-2);
+        return this._hours + ":" + ('00' + this._minutes).slice(-2);
     };
     return TimeSpan;
 }());

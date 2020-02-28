@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "textFont";
+    src: url('AbrilFatface-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'nrFont';
+    src: url("ArchivoBlack.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+
+.dzuma {
+    background: cadetblue !important;
+    
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+#datum-header {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 4.5em;
+    font-family: 'textFont', Arial, sans-serif;
+    filter: drop-shadow(3px 3px 3px gray)
+}
+
+.datum {
+    text-transform: capitalize;
+    color: #32cd32;
+    font-size: 1.2em;
+    font-family: 'textFont', Arial, sans-serif;
+    filter: drop-shadow(1px 1px 1px black)
+}
+
+.numbers {
+    padding-right: 15px;
+    font-family: 'nrFont', Arial, sans-serif;
+    
+}
+
+.vakat {
+    text-align: start;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 2.5em;
+    font-family: 'textFont', Arial, sans-serif;
+    filter: drop-shadow(2px 2px 1px gray)
+}
+
+.sat {
+    text-align: start;
+    font-size: 1.5em;
+    padding-left: 10px;
+    padding-right: 10px;
+    filter: drop-shadow(1px 1px 1px green)
+}

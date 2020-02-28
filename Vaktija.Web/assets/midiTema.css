@@ -10,12 +10,7 @@
     font-style: normal;
 }
 
-body {
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
-    background-color: black;
-}
+
 
 .standard {
     color: whitesmoke;
@@ -41,33 +36,20 @@ td {
 
 .numbers {
     font-family: 'nrFont', Arial, sans-serif;
-    filter: drop-shadow(5px 5px 5px green)
+    filter: drop-shadow(2px 2px 2px green)
 }
 
 .vakat {
     text-align: start;
-    padding: 50px;
-    font-size: 7em;
+    padding-right: 5px;
+    font-size: 2em;
     font-family: 'textFont', Arial, sans-serif;
-    filter: drop-shadow(5px 5px 3px  gray)
+    filter: drop-shadow(2px 2px 1px  gray)
 }
 
 .sat {
-    text-align: end;
-    padding: 50px;
-    font-size: 7em;
-}
-
-.velikisat {
-    padding-top: 10px;
-    text-align: center;
-    font-size: 11em;
-    color: whitesmoke;
-}
-
-.datum {
-    display: block;
-    font-size: 6em;
-    color: darkgrey;
-    text-align: center;
+    text-align: start;
+    padding: 2px;
+    font-size: 2em;
+    padding-right: 5px;
 }

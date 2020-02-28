@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url(assets/midiTema.css);
+    </style>
+    <script src="js/HijriCalender.js/dan.js"></script><script src="js/dan.js"></script>
+    <script src="js/Praznik.js"></script>
+    <script src="js/timespan.js"></script>
+    <script src="js/takvim.js"></script>
+    <script src="js/mini.js"></script>
+    <script >
+        function init() {
+            var mini = new Mini();
+        }
+
+    </script>
+    <meta charset="utf-8" />
+    <title>Midi prikaz </title>
+</head>
+<body onload="init();">
+
+
+    <table >
+        <tr id="vaktija-mini-header">
+            <td>
+                <div class="vakat">Zora</div>
+            </td>
+            <td>
+                <div class="vakat">Sabah</div>
+            </td>
+            <td>
+                <div class="vakat">Podne</div>
+            </td>
+            <td>
+                <div class="vakat">Ikindija</div>
+            </td>
+            <td>
+                <div class="vakat">Akšam</div>
+            </td>
+            <td>
+                <div class="vakat">Jacija</div>
+            </td>
+            
+        </tr>
+        <tr>
+            <td><div id="zora" class="numbers sat"></div></td>
+            <td><div id="sabah" class="numbers sat"></div></td>
+            <td><div id="podne" class="numbers sat"></div></td>
+            <td><div id="ikindija" class="numbers sat"></div></td>
+            <td><div id="aksam" class="numbers sat"></div></td>
+            <td><div id="jacija" class="numbers sat"></div></td>
+        </tr>
+    </table>
+</body>
+</html>
